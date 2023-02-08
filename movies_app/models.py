@@ -14,16 +14,17 @@ class Actor(models.Model):
         db_table = 'actors'
 
 class Movie(models.Model):
-    movie_name= models.CharField(db_column='movie_name',max_length=126,
+    name= models.CharField(db_column='name',max_length=126,
                                  null=False,blank=False , db_index=True)
     duration_in_min=models.FloatField(db_column='duration',null=False)
     release_year=models.IntegerField(
-        db_column='year',null=False,
+        db_column='year',null=False,blank=False,
         validators=[MinValueValidator(1900),MaxValueValidator(2050)])
     pic_url=models.URLField(max_length=512,db_column='pic_url',null=True,blank=True )
     actors=models.ManyToManyField(Actor,through='MovieActor')
+    description = models.TextField(db_column='description', null=False)
     def __str__(self):
-        return self.movie_name
+        return self.name
     class Meta:
         db_table='movies'
 
