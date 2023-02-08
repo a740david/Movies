@@ -46,19 +46,19 @@ from movies_app.models import Movie, Rating
 # movies_qs=movies_qs[:2]
 # print(movies_qs.query)
 
-# m1=Movie.objects.filter(release_year__gt=2020,duration_in_min=15)
-# m2=Movie.objects.filter(release_year__gt=2020).filter(duration_in_min=15)
-# print(m1,m2)
+m1=Movie.objects.filter(release_year__gt=2020,duration_in_min=15)
+m2=Movie.objects.filter(release_year__gt=2020).filter(duration_in_min=15)
+print(m1.query,m2)
 
-filter_by_year=2020
-filter_by_min=None
-name_to_filter='aaa'
-m=Movie.objects.all()
-if filter_by_year:
-    m=m.filter(release_year=filter_by_year)
-if filter_by_min:
-    m=m.filter(duration_in_min=filter_by_min)
-if name_to_filter:
-   m=m.filter(movie_name__iexact=name_to_filter)
-
-print(m.query)
+# filter_by_year=2020
+# filter_by_min=None
+# name_to_filter='aaa'
+# m=Movie.objects.all()
+# if filter_by_year:
+#     m=m.filter(release_year=filter_by_year)
+# if filter_by_min:
+#     m=m.filter(duration_in_min=filter_by_min)
+# if name_to_filter:
+#    m=m.filter(movie_name__iexact=name_to_filter)
+#
+# print(m.query)
