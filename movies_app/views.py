@@ -45,3 +45,7 @@ def rating_list(request):
   serializer = RatingSerializer(rating_qs, many=True)
   return Response(serializer.data)
 
+def index(request):
+    return render(request, 'index.html')
+
+
